@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 225 70% 8%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 225 70% 8%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 70% 8%;
+ 
+    --primary: 225 70% 10%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 225 70% 10%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 227 30% 30%;
+ 
+    --accent: 225 30% 90%;
+    --accent-foreground: 225 70% 10%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 17% 85%;
+    --input: 225 17% 85%;
+    --ring: 225 70% 40%;
+ 
+    --radius: 0.75rem;
+
+    /* Custom cybernetic theme colors */
+    --ai-teal: 170 90% 55%;
+    --ai-teal-foreground: 170 100% 10%;
+    
+    --quantum-blue: 210 100% 60%;
+    --quantum-blue-foreground: 210 100% 98%;
+    
+    --neural-purple: 280 90% 65%;
+    --neural-purple-foreground: 280 100% 98%;
+    
+    --deep-space: 240 70% 12%;
+    --deep-space-foreground: 210 40% 98%;
+    
+    --deep-space-start: hsl(240, 70%, 5%);
+    --deep-space-end: hsl(270, 60%, 15%);
+    
+    --cyber-grid-color1: rgba(32, 120, 255, 0.1);
+  }
+ 
+  .dark {
+    --background: 240 70% 6%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 240 70% 8%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 225 70% 8%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 225 70% 10%;
+ 
+    --secondary: 225 70% 15%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 225 70% 15%;
+    --muted-foreground: 215 30% 70%;
+ 
+    --accent: 225 70% 15%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 240 30% 20%;
+    --input: 240 30% 20%;
+    --ring: 210 80% 50%;
+
+    /* Custom cybernetic theme colors - dark variants */
+    --ai-teal: 170 90% 50%;
+    --ai-teal-foreground: 170 100% 95%;
+    
+    --quantum-blue: 210 100% 50%;
+    --quantum-blue-foreground: 210 100% 95%;
+    
+    --neural-purple: 280 90% 60%;
+    --neural-purple-foreground: 280 100% 95%;
+    
+    --deep-space-start: hsl(240, 70%, 3%);
+    --deep-space-end: hsl(270, 60%, 8%);
+    
+    --cyber-grid-color1: rgba(32, 120, 255, 0.15);
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html, body {
+    @apply h-full overflow-hidden;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Glass morphism components */
+@layer components {
+  .glass-panel {
+    @apply bg-black/10 dark:bg-white/5 backdrop-blur-lg border border-white/10 rounded-lg shadow-lg;
+  }
+  
+  .glass-card {
+    @apply glass-panel p-6;
+  }
+  
+  .glass-button {
+    @apply glass-panel px-4 py-2 hover:bg-white/20 dark:hover:bg-white/10 transition-all duration-300;
+  }
+  
+  .neo-brutalist {
+    @apply border-2 border-black dark:border-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] dark:shadow-[4px_4px_0px_0px_rgba(255,255,255,0.8)] transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] dark:hover:shadow-[2px_2px_0px_0px_rgba(255,255,255,0.8)];
+  }
+  
+  .cyber-grid {
+    @apply bg-cyber-grid bg-[size:40px_40px];
+  }
+  
+  .floating-action-palette {
+    @apply fixed right-6 bottom-6 glass-panel p-2 flex flex-col gap-2;
+  }
+  
+  .neural-connection {
+    @apply stroke-quantum-blue opacity-40 animate-neural-network;
+  }
+  
+  .holographic-overlay {
+    @apply relative overflow-hidden;
+  }
+  
+  .holographic-overlay::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-tr from-transparent via-ai-teal/10 to-quantum-blue/10 animate-hologram-flicker pointer-events-none;
+  }
+  
+  .ethics-border-good {
+    @apply border-ai-teal;
+  }
+  
+  .ethics-border-warning {
+    @apply border-yellow-500;
+  }
+  
+  .ethics-border-danger {
+    @apply border-destructive;
+  }
+  
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ai-teal via-quantum-blue to-neural-purple;
+  }
+  
+  .depth-effect {
+    @apply relative;
+  }
+  
+  .depth-effect::before {
+    content: "";
+    @apply absolute inset-0 -z-10 blur-md opacity-70 bg-inherit transform scale-[0.95] rounded-lg;
+  }
+  
+  .agent-glow {
+    @apply relative;
+  }
+  
+  .agent-glow::after {
+    content: "";
+    @apply absolute inset-0 -z-10 blur-xl bg-ai-teal/20 animate-pulse-glow rounded-full;
+  }
+} 

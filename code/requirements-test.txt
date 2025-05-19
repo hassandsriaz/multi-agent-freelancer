@@ -1,0 +1,3 @@
+# Install pytest and pytest-mock for testing
+pytest
+pytest-mock
